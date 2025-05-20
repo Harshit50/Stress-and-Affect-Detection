@@ -1,49 +1,70 @@
-# Stress-and-Affect-Detection
-Stress and Affect Detection
+# 🏥 MIMIC-III Clinical Data Analytics
 
-# 🧠 Stress and Affect Detection using Physiological Signals
+This project explores patient-level healthcare data from the **MIMIC-III database**, aiming to identify hidden patterns in clinical records through **data integration, cleaning**, and **unsupervised machine learning techniques**.
 
-This project focuses on detecting stress and emotional states using the **WESAD dataset**, a multimodal dataset containing physiological and motion data. By applying **permutation entropy** and **complexity analysis**, we classify affective states like **Baseline**, **Stress**, **Amusement**, and **Meditation** with high accuracy.
+The goal is to gain meaningful insights from complex clinical datasets by applying clustering algorithms to patient demographics, lab results, and physiological data.
 
-## 📊 Objective
+---
 
-To explore time-series physiological data and classify different affective states by computing entropy-complexity features and applying them to various classification techniques.
+## 📌 Objective
+
+To preprocess and unify diverse clinical datasets and apply clustering (K-means & Hierarchical) to identify patient subgroups and extract actionable healthcare insights.
 
 ---
 
 ## 🗂 Dataset
 
-- **Source**: [WESAD Dataset](https://archive.ics.uci.edu/ml/datasets/WESAD)
-- Contains data from 15 subjects recorded via chest and wrist sensors.
-- Modality types: ECG, EMG, EDA, TEMP, RESP, ACC
+- **Source**: [MIMIC-III Database](https://physionet.org/content/mimiciii/1.4/)
+- Contains de-identified health data of ~60,000 ICU patients
+- Used subsets: 
+  - **LABEVENTS.csv** (Lab test results)  
+  - **CHARTEVENTS.csv** (Physiological measurements)  
+  - **PATIENTS.csv** (Demographics)  
+
+⚠️ *Access requires credentialed approval via PhysioNet.*
 
 ---
 
-## 🛠️ Tools & Technologies
+## 🛠️ Technologies Used
 
-- **Python**
-- **Pandas** for data manipulation
-- **NumPy** for numerical computation
-- **Matplotlib & Seaborn** for visualization
-- **Scikit-learn** for classification models
-- **Permutation entropy** and **complexity measures**
-
----
-
-## 📌 Key Features
-
-- Extracted **permutation entropy** and **statistical complexity** for 6 physiological modalities.
-- Preprocessed data: handled **missing values**, **inconsistencies**, and **outliers**.
-- Achieved **98% classification accuracy** using entropy-complexity plots.
-- Visualized affective state clusters using 2D scatter plots.
+- **Python**  
+- **Pandas** – data manipulation & merging  
+- **NumPy** – numerical operations  
+- **Scikit-learn** – clustering algorithms  
+- **Matplotlib & Seaborn** – visualization  
 
 ---
 
-## 📈 Results
+## 🧪 Key Steps
 
-- Clear separation of emotional states in entropy-complexity space.
-- Comparative performance across modalities helped identify the most informative sensors.
+1. **Data Integration**  
+   - Merged `LABEVENTS`, `CHARTEVENTS`, and `PATIENTS` tables on patient identifiers  
+   - Created a unified dataset for downstream analysis
+
+2. **Data Cleaning & Preprocessing**  
+   - Removed null values, duplicates, and inconsistent entries  
+   - Normalized and encoded categorical variables  
+   - Ensured 95% data reliability post-cleaning
+
+3. **Clustering Techniques Applied**  
+   - **K-means Clustering**: Patient grouping based on lab and physio data  
+   - **Hierarchical Clustering**: Dendrogram analysis to visualize similarity  
+   - Evaluated cluster cohesion and visualized with cluster plots
+
+4. **Visualization**  
+   - Histograms of patient vitals  
+   - Cluster plots to show subgroup distinctions  
+   - Heatmaps of lab results
 
 ---
+
+## 📈 Results & Insights
+
+- Successfully segmented patients into meaningful clusters
+- Discovered patterns across age, lab metrics, and ICU stays
+- Helped demonstrate the potential of clustering for patient risk stratification
+
+
+
 
 
